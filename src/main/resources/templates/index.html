@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+<div class="row mt-5">
+    <div class="col-md-3" style="margin-left: 150px; width: 200px">
+        <form action="/join" method="post">
+            <div class="form-group email-form">
+                <div class="form-group">
+                    <label for="name">이름:</label>
+                    <input type="text" class="form-control" id="name" name="name">
+                </div>
+                <div class="form-group">
+                    <label for="addr">주소:</label>
+                    <input type="text" class="form-control" id="addr" name="addr">
+                </div>
+                <label for="univ">학교이름:</label>
+                <div class="input-group">
+                    <input type="text" class="form-control" name="univ" id="univ" placeholder="학교명">
+                </div>
+                <label for="major">전공과목:</label>
+                <div class="input-group">
+                    <input type="text" class="form-control" name="major" id="major" placeholder="전공명">
+                </div>
+            </div>
+            <div>
+                <button type="submit" class="btn btn-primary">학생추가</button>
+                <button type="button" class="btn btn-primary" onclick="openPop()">학생검색</button>
+            </div>
+        </form>
+    </div>
+</div>
+<script>
+    function openPop() {
+        window.open("shStu",'popup', "width=700, height=500");
+    }
+</script>
+</body>
+
+</html>

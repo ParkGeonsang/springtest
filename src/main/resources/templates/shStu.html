@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="/sh" method="get">
+    <input type="text" id="name" name="name" placeholder="검색하려는 학생이름 입력">
+    <button type="submit">검색</button>
+</form>
+    <div class="col-md-3" style="margin-left: 100px;margin-right: 50px">
+        <table class="table">
+            <thead class="TableHead">
+            <tr>
+                <th scope="col">NO</th>
+                <th class="TableHeadSubject" scope="col">이름</th>
+            </tr>
+            </thead>
+            <tbody class="table-group-divider" th:each="stu: ${li}">
+            <tr>
+                <th scope="row" th:text="${stu.id}"></th>
+                <td class="noticeTableBodySubject">
+                    <a class="noticeIndexSubject" th:text="${stu.name}"
+                       th:href="@{/info(stu_id=${stu.id})}"></a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+</body>
+</html>

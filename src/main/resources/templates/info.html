@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+<div class="col-md-3" style="margin-left: 100px;margin-right: 50px">
+    <form th:action="@{/modify(idx=${info.id})}" th:method="post">
+        <!--            <th scope="col">NO</th>-->
+<!--        <div class="form-group">-->
+<!--            <label for="stu_id">번호:</label>-->
+<!--            <input type="text" class="stu_id" id="stu_id" name="idx"-->
+<!--                   th:value="${info.stu_id}" style="width: 100px; text-align: center" readonly>-->
+<!--        </div>-->
+        <div class="form-group">
+            <label for="name">이름:</label>
+            <input type="text" class="name" id="name" name="name"
+                   th:value="${stu.name}" style="text-align: center" readonly>
+        </div>
+        <div class="form-group">
+            <label for="addr">주소:</label>
+            <input type="text" class="addr" id="addr" name="addr"
+                   th:value="${info.addr}" style="text-align: center" readonly>
+        </div>
+        <div class="form-group">
+            <label for="univ">학교이름:</label>
+            <input type="text" class="univ" id="univ" name="univ"
+                   th:value="${info.univ}" style="text-align: center" readonly>
+        </div>
+        <div class="form-group">
+            <label for="major">전공과목:</label>
+            <input type="text" class="major" id="major" name="major"
+                   th:value="${info.major}" style="text-align: center" readonly>
+        </div>
+        <button type="button" class="delete">삭제</button>
+        <button type="button" class="modify">수정</button>
+        <button type="button" onclick="history.go(-1)">취소</button>
+        <button type="submit" class="modifyCom" style="display: none">수정완료</button>
+    </form>
+    <input type="hidden" class="idx" th:value="${info.stu_id}">
+</div>
+<script>
+
+    $(".delete").on("click",function (){
+        window.location = "/delete?stu_id=" + $(".idx").val();
+    });
+    $(".modify").on("click",function (){
+        $(".addr").removeAttr("readonly")
+        $(".univ").removeAttr("readonly")
+        $(".major").removeAttr("readonly")
+        $(".modify").css("display","none")
+        $(".modifyCom").css("display","inline-block")
+    });
+
+
+</script>
+</body>
+</html>
